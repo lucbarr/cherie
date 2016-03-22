@@ -1,5 +1,7 @@
 #include "cherie.h"
 
+//Methods definition cpp file
+
 //Constructors definitions
 
 Cherie::Cherie (int sta, int thr, int bldr, int fed){
@@ -36,6 +38,11 @@ bool Cherie::IsFed(){
 	return FedLevel >= FedThresold;
 }
 
+void Cherie::ChangeLocus(loci newLocus){
+	Locus = newLocus;
+	return ;
+}
+
 void Cherie::PissAllOver(){
 	BladderLevel = 0;
 	return ;
@@ -43,43 +50,31 @@ void Cherie::PissAllOver(){
 
 //ADD and SUBTRACT functions definitions
 
-void Cherie::Staminapp(){
-	Stamina++;
+void Cherie::Staminapp(int val){
+	Stamina+=val;
+	if (Stamina<0)
+		Stamina = 0;
 	return ;
 }
 
-void Cherie::ThirstLevelpp(){
-	ThirstLevel++;
+void Cherie::ThirstLevelpp(int val){
+	ThirstLevel+=val;
+	if (ThirstLevel<0)
+		ThirstLevel = 0;
 	return ;
 }
 
-void Cherie::BladderLevelpp(){
-	BladderLevel++;
+void Cherie::BladderLevelpp(int val){
+	BladderLevel+=val;
+	if (BladderLevel<0)
+		BladderLevel = 0;
 	return ;
 }
 
-void Cherie::FedLevelpp(){
-	FedLevel++;
-	return ;
-}
-
-void Cherie::Staminamm(){
-	Stamina--;
-	return ;
-}
-
-void Cherie::ThirstLevelmm(){
-	ThirstLevel--;
-	return ;
-}
-
-void Cherie::BladderLevelmm(){
-	BladderLevel--;
-	return ;
-}
-
-void Cherie::FedLevelmm(){
-	FedLevel++;
+void Cherie::FedLevelpp(int val){
+	FedLevel+=val;
+	if (FedLevel<0)
+		FedLevel = 0;
 	return ;
 }
 

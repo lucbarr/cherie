@@ -1,7 +1,7 @@
 #ifndef CHERIE_H
 #define CHERIE_H 
 #include "loci.h"
-
+#include "cherieStates.h"
 
 /*
 Header file for the sake of Cherie class definition.
@@ -23,7 +23,7 @@ class Cherie{
 		int BladderLevel;
 		int FedLevel;
 	public:
-		Cherie(int , int, int, int);
+		Cherie(int, int, int, int);
 		Cherie ();
 
 		bool IsTired();
@@ -31,17 +31,14 @@ class Cherie{
 		bool IsThirsty();
 		bool IsFed();
 
+		void ChangeLocus(loci newLocus);
+
 		void PissAllOver();
-        //pp functions sums 1 to variables
-		void Staminapp();
-		void ThirstLevelpp();
-		void BladderLevelpp();
-		void FedLevelpp();
-		//mm functions subtracts 1 from variables
-		void Staminamm();
-		void ThirstLevelmm();
-		void BladderLevelmm();
-		void FedLevelmm();
+		//pp functions sums 1 to variables
+		void Staminapp(int val);
+		void ThirstLevelpp(int val);
+		void BladderLevelpp(int val);
+		void FedLevelpp(int val);
 
 		int GetStamina(){return Stamina;}
 		int GetThirstLevel(){return ThirstLevel;}
