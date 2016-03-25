@@ -9,19 +9,23 @@ Here we define its methods, constants, and constructors,
 basically.
 */
 
+class State;
+
 const int FedThresold = 4;
 const int ThirstThreshold = 5;
-const int TiredThreshold = 6;
+const int TiredThreshold = 3;
 const int FullBladder = 4;
 const float ScratchChance = 0.90f;
 
 class Cherie{
 	private:
+		State* currentState;
 		loci Locus;
 		int Stamina;
 		int ThirstLevel;
 		int BladderLevel;
 		int FedLevel;
+		int Time;
 	public:
 		Cherie(int, int, int, int);
 		Cherie ();
@@ -30,8 +34,12 @@ class Cherie{
 		bool IsBladderFull();
 		bool IsThirsty();
 		bool IsFed();
+		bool IsBeggingTime();
 
 		void ChangeLocus(loci newLocus);
+		void ChangeState(State* newState);
+		void TimeUpdate();
+		void ShowTime();
 
 		void PissAllOver();
 		//pp functions sums 1 to variables
