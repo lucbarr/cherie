@@ -19,7 +19,7 @@ Cherie::Cherie (int sta, int thr, int bldr, int fed){
 	BladderLevel = bldr;
 	FedLevel = fed;
 	Locus = annas_room;
-	Time = 6;
+	Time = 12;
 	currentState = Lain::Instance();
 }
 
@@ -45,15 +45,22 @@ void Cherie::Update(){
 	currentState->Run(this);
 }
 
-void Cherie::TimeUpdate(){
+/* Time is divided in 48 periods of 30 seconds.*/
+
+void Cherie::TimeUpdate(){ 
 	Time++;
-	if (Time>=24){
-		Time=Time-24;
+	if (Time>=48){
+		Time=Time-48;
 	}
 }
 
 void Cherie::ShowTime(){
-	std::cout << "( " << Time << " : 00 )" ;
+	if(Time>=0 and Time <=19){
+		std::cout << "( " << Time/2 << "  : " << 3*(Time%2) << "0 )";
+	}
+	else{
+		std::cout << "( " << Time/2 << " : " << 3*(Time%2) << "0 )";
+	}
 }
 
 //Boolean status functions definitions
@@ -87,6 +94,10 @@ bool Cherie::IsBeggingTime(){
 	else{
 		return false;
 	}
+}
+
+bool Cherie::IsRested(){
+	return Stamina>=RestedThreshold;
 }
 
 void Cherie::ChangeLocus(loci newLocus){
@@ -131,4 +142,8 @@ void Cherie::FedLevelpp(int val){
 		FedLevel = 0;
 	}
 	return ;
+}
+
+void Cherie::PrintStatus(){ //debugging function
+	std::cout << std:: endl << "S: " << Stamina << " F: " << FedLevel << " B: " << BladderLevel << " T: " << ThirstLevel << " L: " << Locus << std::endl ;
 }

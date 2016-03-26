@@ -12,10 +12,20 @@ basically.
 class State;
 
 const int FedThresold = 4;
-const int ThirstThreshold = 5;
+const int ThirstThreshold = 4;
 const int TiredThreshold = 3;
-const int FullBladder = 4;
-const float ScratchChance = 0.90f;
+const int RestedThreshold = 9;
+const int FullBladder = 5;
+
+/* Chances of things happening. Totally arbitrary */
+
+const float ScratchingC = 0.90f;
+const float GetHungryWhileSleepingC = 0.70f;
+const float GetThirstyWhileSleepingC = 0.60f;
+const float ExtraStaminaC = 0.40f;
+const float ExtraFatigueC = 0.35f;
+const float ExtraThirstC = 0.30f;
+const float ExtraFedLevelC = 0.5f;
 
 class Cherie{
 	private:
@@ -37,6 +47,7 @@ class Cherie{
 		bool IsThirsty();
 		bool IsFed();
 		bool IsBeggingTime();
+		bool IsRested();
 
 		void ChangeLocus(loci newLocus);
 		void ChangeState(State* newState);
@@ -55,6 +66,8 @@ class Cherie{
 		int GetBladderLevel(){return BladderLevel;}
 		int GetFedLevel(){return FedLevel;}
 		loci GetLocus(){return Locus;}
+
+		void PrintStatus();
 
 		State* GetCurrentState(){return currentState;} //debugging funct
 };
