@@ -15,11 +15,16 @@ Cherie is a dog. I asked a friend of mine if she could describe her canine fello
 * eating : cherie eats
 * drinking : cherie drinks
 
-# cherie's transitions (may change)
-* to scratching from any : cherie swipes her paws into her own fur
-* to eating from begging : cherie jumps into the air and bites a piece of food
-* to eating from any but lain : cherie heads towards her food bowl
-* to drinking from any but lain : cherie heads towards her water bowl
-* from lain to any : cherie yawns and stretches her legs
-* to pissing from begging : cherie pisses and gets her Anna very mad
-* to pissing from any : cherrie goes to the living room, sit down and pisses a lot on carpet.
+# how to run (linux)
+
+You will need:
+* g++ compiler (4.8.4 or higher)
+
+How to compile:
+
+	~$ g++ *.cpp
+	~$ g++ *.o
+
+Now execute:
+
+	~$ ./a.out
