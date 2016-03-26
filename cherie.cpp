@@ -119,13 +119,13 @@ bool Cherie::IsFed(){
 }
 
 bool Cherie::IsBeggingTime(){
-	if (Time<=13 && Time>=11){
+	if (Time<=12 && Time>=16){
 		return true;
 	}
-	else if (Time<=20 && Time>=18){
+	else if (Time<=26 && Time>=22){
 		return true;
 	}
-	else if (Time<=8 && Time>=6){
+	else if (Time<=40 && Time>=36){
 		return true;
 	}
 	else{

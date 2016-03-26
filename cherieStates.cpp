@@ -55,8 +55,8 @@ Lain* Lain::Instance(){
 }
 
 void Lain::Enter(Cherie* pCherie){
-	sleep(2);
 	if ((pCherie->GetLocus() != annas_room)){
+		sleep(2);
 		cout << " *yawning* Cherie heads towards Anna's room " << endl;
 		pCherie->ChangeLocus(annas_room);
 	}
@@ -106,8 +106,8 @@ Pissing* Pissing::Instance(){
 }
 
 void Pissing::Enter(Cherie* pCherie){
-	sleep(2);
 	if ((pCherie->GetLocus() != living_room)){
+		sleep(2);
 		pCherie->ShowTime();
 		cout << " *Woof Woof!* Cherie is heading the living room ready to land a load!!!" << endl;
 		pCherie->ChangeLocus(living_room);
@@ -152,8 +152,8 @@ Eating* Eating::Instance(){
 }
 
 void Eating::Enter(Cherie* pCherie){
-	sleep(2);
 	if(pCherie->GetLocus()!=bowls_room){
+		sleep(2);
 		pCherie->ShowTime();
 		cout << " *sound of a HUNGRY dogue* Cherie enters bowls' room" << endl;
 		pCherie->ChangeLocus(bowls_room);
@@ -176,7 +176,6 @@ void Eating::Run (Cherie* pCherie){
 	}
 	else if (pCherie->IsThirsty()){
 		pCherie->ChangeState(Drinking::Instance());
-		sleep(2);
 		pCherie->ShowTime();
 		cout << " Cherie aims the other bowl" << endl;
 	}
@@ -203,8 +202,8 @@ Drinking* Drinking::Instance(){
 }
 
 void Drinking::Enter(Cherie* pCherie){
-	sleep(2);
 	if((pCherie->GetLocus()!=bowls_room)){
+		sleep(2);
 		pCherie->ShowTime();
 		cout << " *puffy dog sound* Cherie needs water, she ramparts towards bowls room" << endl;
 		pCherie->ChangeLocus(bowls_room);
@@ -241,7 +240,7 @@ void Drinking::Run (Cherie* pCherie){
 void Drinking::Exit(Cherie* pCherie){
 	sleep(2);
 	pCherie->ShowTime();
-	cout << " *spills water allover* Cherie is done fericiously drinking water" << endl;
+	cout << " *spills water allover* Cherie is done ferociously drinking water" << endl;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -252,8 +251,8 @@ Scratching* Scratching::Instance(){
 }
 
 void Scratching::Enter(Cherie* pCherie){
-	sleep(2);
 	if(pCherie->GetLocus()!= annas_room){
+		sleep(2);
 		pCherie->ShowTime();
 		cout << " *dog paws shaking* After feeling an urge to scratch herself, Cherie enters Anna's room" << endl;
 		pCherie->ChangeLocus(annas_room);
@@ -299,8 +298,8 @@ Begging* Begging::Instance(){
 }
 
 void Begging::Enter(Cherie* pCherie){
-	sleep(2);
 	if(pCherie->GetLocus()!=dining_room){
+		sleep(2);
 		pCherie->ShowTime();
 		cout << " *Whining* Cherie can smell the food from far... (heads towards dining room)" << endl;
 		pCherie->ChangeLocus(dining_room);
