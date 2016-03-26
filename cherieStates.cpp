@@ -26,12 +26,12 @@ void Lain::Enter(Cherie* pCherie){
 }
 
 void Lain::Run(Cherie* pCherie){
-	pCherie->Staminapp((int)(2*RANDOM_NUM)+1);
+	pCherie->Staminapp(1);
 	pCherie->TimeUpdate();
 	pCherie->ShowTime();
 	cout << "--> *zzZzZz* Cherie is lain down sleeping like an angel... dog" << endl;
 	if (pCherie->IsTired()){
-		pCherie->ChangeState(Lain::Instance());
+		
 	}
 	else if (pCherie->IsBladderFull()){
 		pCherie->ChangeState(Pissing::Instance());
@@ -106,7 +106,7 @@ void Eating::Run (Cherie* pCherie){
 	pCherie->ShowTime();
 	cout << "*that sound of a dog eating* Cherie eats like a doge !!" << endl;
 	if (pCherie->IsFed()){
-		pCherie->ChangeState(Eating::Instance());
+		
 	}
 	else if (pCherie->IsThirsty()){
 		cout << "--> Cherie heads the other bowl" << endl;
@@ -146,9 +146,9 @@ void Drinking::Run (Cherie* pCherie){
 	if (RANDOM_NUM>0.7f){pCherie->Staminapp(1);}
 	pCherie->TimeUpdate();
 	pCherie->ShowTime();
-	cout << "*that sound of a dog drinking* Cherie is drinking water like a dog" << endl;
+	cout << "--> *that sound of a dog drinking* Cherie is drinking water like a dog" << endl;
 	if (!pCherie->IsThirsty()){
-		pCherie->ChangeState(Drinking::Instance());
+		
 	}
 	else if (pCherie->IsFed()){
 		cout << "--> Cherie heads the other bowl" << endl;
@@ -169,10 +169,10 @@ Scratching* Scratching::Instance(){
 }
 
 void Scratching::Enter(Cherie* pCherie){
-	if(pCherie->GetLocus()!= annas_room){
+	//if(pCherie->GetLocus()!= annas_room){
 		cout << "--> *dog paws shaking* Cherie feels an urge to scratch herself then heads towards Anna's room" << endl;
 		pCherie->ChangeLocus(annas_room);
-	}
+	//}
 }
 
 void Scratching::Run(Cherie* pCherie){
@@ -190,7 +190,7 @@ void Scratching::Run(Cherie* pCherie){
 		pCherie->ChangeState(Pissing::Instance());
 	}
 	else{
-		pCherie->ChangeState(Scratching::Instance());
+		
 	}
 }
 
@@ -231,7 +231,12 @@ void Begging::Run(Cherie* pCherie){
 			pCherie->ChangeState(Eating::Instance());
 		}
 		else {
-			pCherie->ChangeState(Begging::Instance());
+			if(pCherie->IsBeggingTime()){
+				
+			}
+			else {
+				pCherie->ChangeState(Scratching::Instance());
+			}
 		}
 	}
 	return ;

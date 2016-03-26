@@ -5,7 +5,7 @@
 #include <time.h>
 #include "cherieStates.h"
 
-#ifndef RANDOM
+#ifndef RANDOM_NUM
 #define RANDOM_NUM ((float)rand()/(RAND_MAX+1.0))
 #endif
 
@@ -30,6 +30,7 @@ Cherie::Cherie (){
 	FedLevel = 2;
 	Locus = annas_room;
 	Time = 6;
+	currentState = Lain::Instance();
 }
 
 void Cherie::ChangeState(State* newState){
@@ -40,6 +41,10 @@ void Cherie::ChangeState(State* newState){
 	currentState->Enter(this);
 }
 
+void Cherie::Update(){
+	currentState->Run(this);
+}
+
 void Cherie::TimeUpdate(){
 	Time++;
 	if (Time>=24){
@@ -48,7 +53,7 @@ void Cherie::TimeUpdate(){
 }
 
 void Cherie::ShowTime(){
-	std::cout << "( " << Time << " : " << (int)RANDOM_NUM*60 <<" )";
+	std::cout << "( " << Time << " : 00 )" ;
 }
 
 //Boolean status functions definitions
@@ -97,29 +102,33 @@ void Cherie::PissAllOver(){
 //ADD and SUBTRACT functions definitions
 
 void Cherie::Staminapp(int val){
-	Stamina+=val;
-	if (Stamina<0)
+	Stamina=Stamina+val;
+	if (Stamina<0){
 		Stamina = 0;
+	}
 	return ;
 }
 
 void Cherie::ThirstLevelpp(int val){
 	ThirstLevel+=val;
-	if (ThirstLevel<0)
+	if (ThirstLevel<0){
 		ThirstLevel = 0;
+	}
 	return ;
 }
 
 void Cherie::BladderLevelpp(int val){
 	BladderLevel+=val;
-	if (BladderLevel<0)
+	if (BladderLevel<0){
 		BladderLevel = 0;
+	}
 	return ;
 }
 
 void Cherie::FedLevelpp(int val){
 	FedLevel+=val;
-	if (FedLevel<0)
+	if (FedLevel<0){
 		FedLevel = 0;
+	}
 	return ;
 }

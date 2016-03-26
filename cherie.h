@@ -30,6 +30,8 @@ class Cherie{
 		Cherie(int, int, int, int);
 		Cherie ();
 
+		void Update();
+
 		bool IsTired();
 		bool IsBladderFull();
 		bool IsThirsty();
@@ -54,6 +56,7 @@ class Cherie{
 		int GetFedLevel(){return FedLevel;}
 		loci GetLocus(){return Locus;}
 
+		State* GetCurrentState(){return currentState;} //debugging funct
 };
 
 #endif
