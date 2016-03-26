@@ -21,6 +21,9 @@ You will need:
 * g++ compiler (4.8.4 or higher)
 
 How to compile:
+
 	~$ make
-How to execute:
+
+Now execute:
+
 	~$ ./cherie
