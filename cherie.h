@@ -3,11 +3,14 @@
 #include "loci.h"
 #include "cherieStates.h"
 
-/*
-Header file for the sake of Cherie class definition.
-Here we define its methods, constants, and constructors,
-basically.
-*/
+/*///////////////////////////////////////////////////////////////////
+//////////////////////// file : cherie.h ////////////////////////////
+	description:
+		Header file for the sake of Cherie class definition.
+	Here we define its methods, constants and constructors,
+	basically.
+/////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////*/
 
 class State;
 

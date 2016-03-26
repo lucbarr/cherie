@@ -12,7 +12,42 @@
 
 using namespace std;
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+/*///////////////////////////////////////////////////////////////////
+//////////////////////// file : cherieStates.cpp ////////////////////
+	description:
+		In this file, we basically describe and define the whole state 
+	machine's design. As you can notice in cherieStates.h, the
+	Cherie's states are polymorphisms of the State abstraction class.
+	This means that for every state we can define its own Enter,
+	Run and Exit methods prestated in State.h. 
+
+		* Enter basically prints the text of entering a certain state
+		- notice that Enter conditionals are related to the current 
+		Locus. 
+
+		* Run executes the current state. This is the most important
+		function of this code, since it defines how and when the FSM
+		changes its state. It also describes how Cherie status are
+		changed upon every state execution.
+
+		* Exit prints what happens when Cherie leaves a state. It
+		mainly have no conditionals related.
+
+		<State>* typed Instance methods returns the instance of that
+	current state. This instance is a static address of that state,
+	which is needed for switching within the many states.
+
+	Note1: the sleep function is called before every output, and every
+	output comes along with ShowTime method from Cherie class. I just
+	hadn't thought of a cleaner solution for this, because if sleep
+	is called upon Update method, Enter and Exit states methods will
+	flood the output stream, turning it unfriendly to reading.
+
+	Note2: There are some RANDOM_NUM macros in this code. This macro is
+	for pseudorandom numbers from 0 to 1, which are seed with srand().
+	Without the seed these numbers would not be pseudorandom at all.
+/////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////*/
 
 Lain* Lain::Instance(){
 	static Lain instance;
@@ -21,7 +56,7 @@ Lain* Lain::Instance(){
 
 void Lain::Enter(Cherie* pCherie){
 	sleep(2);
-	if ((pCherie->GetLocus() != annas_room)){ // todo add change to diag
+	if ((pCherie->GetLocus() != annas_room)){
 		cout << " *yawning* Cherie heads towards Anna's room " << endl;
 		pCherie->ChangeLocus(annas_room);
 	}
@@ -192,7 +227,7 @@ void Drinking::Run (Cherie* pCherie){
 	else if (pCherie->IsBladderFull()){
 		pCherie->ChangeState(Pissing::Instance());
 	}
-	else if (pCherie->IsFed()){
+	else if (!	pCherie->IsFed()){
 		pCherie->ShowTime();
 		cout << " Cherie aims the other bowl" << endl;
 		pCherie->ChangeState(Eating::Instance());
