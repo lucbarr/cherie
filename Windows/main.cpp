@@ -4,7 +4,6 @@
 #include <time.h>
 #include "cherie.h"
 #include "loci.h"
-#include <unistd.h>
 
 #ifndef RANDOM
 #define RANDOM_NUM ((float)rand()/(RAND_MAX+1.0))

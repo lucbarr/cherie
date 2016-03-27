@@ -4,7 +4,7 @@
 #include <time.h>
 #include "cherie.h"
 #include "loci.h"
-#include <unistd.h>
+#include "sleep.h"
 
 #ifndef RANDOM
 #define RANDOM_NUM ((float)rand()/(RAND_MAX+1.0))
@@ -57,6 +57,7 @@ Lain* Lain::Instance(){
 void Lain::Enter(Cherie* pCherie){
 	if ((pCherie->GetLocus() != annas_room)){
 		sleep(2);
+		pCherie->ShowTime();
 		cout << " *yawning* Cherie heads towards Anna's room " << endl;
 		pCherie->ChangeLocus(annas_room);
 	}

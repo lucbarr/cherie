@@ -41,7 +41,7 @@ class Cherie{
 		int Time;
 	public:
 		Cherie(int, int, int, int);
-		Cherie ();
+		Cherie();
 
 		void Update();
 
